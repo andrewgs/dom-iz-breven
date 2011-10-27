@@ -1,0 +1,8 @@
+AddDefaultCharset utf-8
+Options +FollowSymLinks
+DirectoryIndex index.html
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [L]
+ErrorDocument 404 /404.html
