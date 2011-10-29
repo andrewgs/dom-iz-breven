@@ -74,7 +74,7 @@ body {
 
 header .top { height: 80px; }
 
-#logo { display: block; background: url(../img/logo.png) no-repeat;  width: 243px; height: 50px; text-indent: -9999px; margin: 15px 0 0; }
+#logo { display: block; background: url(../img/logo.png) no-repeat;  width: 246px; height: 47px; text-indent: -9999px; margin: 20px 0 0; }
 
 #top-contacts { margin: 15px 0 0; text-align: right; }
 #top-contacts .phone-number { border-right: 1px dashed #B7B7B7; color: #488012; float: left; font-size: 23px; line-height: 21px; padding: 0 15px; float: right; }
@@ -207,6 +207,11 @@ ul.list li { list-style: none outside none; margin: 0 !important; background: ur
 blockquote { background: url("../img/blockquote.png") no-repeat scroll left top transparent; padding: 0 40px; margin: 0; }
 blockquote p { color: #777; font-style: italic; line-height: 21px; margin: 0 0 25px; width: 530px; }
 blockquote p.margin { margin: 10px 0; }
+
+/*======= Projects =========*/
+.project { background: url("../img/wood-frame.jpg") repeat scroll 0 0 #FDBD66; border: 1px solid #C87434; height: 132px; margin: 10px 0 4px; padding: 5px; text-align: center; width: 172px; }
+.project img { border: 1px solid #C87434; }
+.project-desc { font-size: 13px; line-height: 18px; margin: 5px 0 20px; text-align: center; width: 182px; }
 
 /* ==|== non-semantic helper classes ======================================== */
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }

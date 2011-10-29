@@ -21,7 +21,7 @@
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
   <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AJ7Yp04BAAAAF33mdgIAdWfLeYksoqkOYC9W6KJqga6moiwAAAAAAAAAAAAlvBoZmtNC5Cm6SEOnrvKjqBf8JA==" type="text/javascript"></script>
   <style type="text/css">
-	.overlay { position: absolute; z-index: 1; width: 45px; height: 50px; background: url(img/home_contacts.png); cursor:pointer; }
+	.overlay { position: absolute; z-index: 1; width: 40px; height: 36px; background: url(img/home_contacts.png); cursor:pointer; }
 	.map-wrapper { background: #90987F; border: 1px solid #999; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; height: 400px; padding: 3px; text-align: center; width: 600px; margin-bottom: 20px; }
   </style>  
 </head>
@@ -64,7 +64,7 @@
 			<p><span class="black">E-mail:</span> <a class="green-link" href="mailto:info@dom-iz-breven.ru">info@dom-iz-breven.ru</a></p>
 			<p><span class="black">На карте:</span></p>
 		    <script type="text/javascript">
-		    	var map, stations = [{point: new YMaps.GeoPoint(39.606393,47.234586), name:"Компания Зеленый Дом"}];
+		    	var map, stations = [{point: new YMaps.GeoPoint(39.615393,47.236995), name:"Компания Зеленый Дом"}];
 		    
 		        // Создание обработчика для события window.onLoad
 		        YMaps.jQuery(function () {
@@ -72,7 +72,7 @@
 		            map = new YMaps.Map(YMaps.jQuery("#YMapsID")[0]);
 		
 		            // Установка для карты ее центра и масштаба
-		            map.setCenter(new YMaps.GeoPoint(39.606393,47.234586), 15);
+		            map.setCenter(new YMaps.GeoPoint(39.617393,47.235586), 15);
 		            map.addControl(new YMaps.Zoom());
 		            map.enableScrollZoom();
 		            
