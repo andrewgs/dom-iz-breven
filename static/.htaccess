@@ -3,6 +3,12 @@ Options +FollowSymLinks
 DirectoryIndex index.html
 RewriteEngine On
 RewriteBase /
+
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [L]
+
+# склейка зеркал сайта
+RewriteCond %{HTTP_HOST} ^www.dom-iz-breven.ru$ [NC]
+RewriteRule ^(.*)$ http://dom-iz-breven.ru/$1 [R=301,NC,L]
+
 ErrorDocument 404 /404.html
