@@ -11,12 +11,43 @@ $route['proizvodstvo-ocilindrovannogo-brevna'] = "users_interface/proizvodstvo";
 $route['proekti-derevyannih-domov'] = "users_interface/proekti";
 $route['ceni-na-derevyannie-doma'] = "users_interface/ceni";
 $route['kontakti'] = "users_interface/kontakti";
-/* ----------------------------------- authorization/shutdown ---------------------------------------------*/
-$route['authorization'] = "users_interface/authorization";
-$route['shutdown'] = "users_interface/shutdown";
-$route['admin']	= "users_interface/admin_login";
+$route['send-mail'] = "users_interface/formsendmail";
+
+$route['viewimage/:num'] = "users_interface/viewimage";
+$route['viewshema/:num'] = "users_interface/viewshema";
+
+$route['proekti-derevyannih-domov-do-100m2'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-do-100m2/spisok'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-do-100m2/spisok/:num'] = "users_interface/proektilist";
+
+$route['proekti-derevyannih-domov-ot-100m2-do-200m2'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-ot-100m2-do-200m2/spisok'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-ot-100m2-do-200m2/spisok/:num'] = "users_interface/proektilist";
+
+$route['proekti-derevyannih-domov-ot-200m2-do-300m2'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-ot-200m2-do-300m2/spisok'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-ot-200m2-do-300m2/spisok/:num'] = "users_interface/proektilist";
+
+$route['proekti-derevyannih-domov-ot-300m2'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-ot-300m2/spisok'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-ot-300m2/spisok/:num'] = "users_interface/proektilist";
+
+$route['proekti-derevyannih-domov-do-100m2/proekt-db-:num'] = "users_interface/proektinfo";
+$route['proekti-derevyannih-domov-ot-100m2-do-200m2/proekt-db-:num'] = "users_interface/proektinfo";
+$route['proekti-derevyannih-domov-ot-200m2-do-300m2/proekt-db-:num'] = "users_interface/proektinfo";
+$route['proekti-derevyannih-domov-ot-300m2/proekt-db-:num'] = "users_interface/proektinfo";
 
 /************************************	ADMIN INTRERFACE	***********************************************/
 
 $route['admin/control-panel'] = "admin_interface/cpanel";
+$route['admin/shutdown'] = "admin_interface/shutdown";
+$route['admin/delete-message'] = "admin_interface/delete_message";
+$route['admin/add-project'] = "admin_interface/add_project";
+$route['admin/views-projects'] = "admin_interface/views_projects";
+$route['admin/delete-project'] = "admin_interface/delete_project";
+
+/* ----------------------------------- authorization/shutdown ---------------------------------------------*/
+
+$route['admin']	= "users_interface/admin_login";
+$route['admin/:any'] = "users_interface/admin_login";
 ?>

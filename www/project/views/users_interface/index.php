@@ -1,21 +1,4 @@
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title><?=$title;?></title>
-<meta name="description" content="<?=$description;?>">
-<meta name="author" content="<?=$author;?>">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<!-- CSS concatenated and minified via ant build script-->
-<link rel="stylesheet" href="<?=$baseurl;?>css/style.css">
-<link rel="stylesheet" href="<?=$baseurl;?>css/960.css">
-<!-- end CSS-->
-<script src="<?=$baseurl;?>js/libs/modernizr-2.0.6.min.js"></script>
-</head>
+<?php $this->load->view('users_interface/head'); ?>
 <body>
 	<div id="container">
 	<?php $this->load->view('users_interface/header'); ?>
@@ -82,24 +65,18 @@
 	    	<div class="grid_12">
 		    	<h2>Проекты домов</h2>
 	    	</div>
+		<?php for($i=0;$i<count($projects);$i++):?>	
 	    	<div class="grid_4">
-	    		<div class="home-preview" style="background-image: url(<?=$baseurl;?>img/projects/project-1-1.jpg);"> </div>
-	    		<h4><a href="#">Охотничья усадьба</a></h4>
-	    		<p>Плошадь: 180м<sup>2</sup><br/>
-	    		Стоимость: 1.200.000руб.</p>
+	    		<div class="home-preview" style="background-image: url(<?=$baseurl?>/viewimage/<?=$projects[$i]['id']?>); width:270px;"> </div>
+	    		<h4>
+					<a href="<?=$baseurl.$projects[$i]['uri'];?>/proekt-db-<?=$projects[$i]['id'];?>">
+						Дом из оцилиндрованного бревна ДБ-<?=$projects[$i]['id']?>
+					</a>
+				</h4>
+	    		<p>Плошадь: <?=$projects[$i]['square'];?> м<sup>2</sup><br/>
+	    		Стоимость: <?=$projects[$i]['price'];?>руб.</p>
 	    	</div>
-	    	<div class="grid_4">
-	    		<div class="home-preview" style="background-image: url(<?=$baseurl;?>img/projects/project-2-1.jpg);"> </div>
-				<h4><a href="#">Европейский</a></h4>
-				<p>Плошадь: 2200м<sup>2</sup><br/>
-				Стоимость: 2.400.000руб.</p>
-			</div>
-			<div class="grid_4">
-				<div class="home-preview" style="background-image: url(<?=$baseurl;?>img/projects/project-3-1.jpg);"> </div>
-				<h4><a href="#">Снежный день</a></h4>
-				<p>Плошадь: 280м<sup>2</sup><br/>
-				Стоимость: 3.200.000руб.</p>
-			</div>
+		<?php endfor;?>
 			<div class="grid_12 block-separator"></div>
 		</div>
 		<div id="contact-info" class="container_12 clearfix">
@@ -114,28 +91,6 @@
 		</div>
 		<?php $this->load->view('users_interface/footer'); ?>
 	</div> <!--! end of #container -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="<?=$baseurl;?>js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-	<!-- scripts concatenated and minified via ant build script-->
-	<script defer src="<?=$baseurl;?>js/plugins.js"></script>
-	<script defer src="<?=$baseurl;?>js/script.js"></script>
-	<!-- end scripts-->
-	<!-- Google Analytics -->
-	<script>
-		window._gaq = [['_setAccount','UA-17193616-5'],['_trackPageview'],['_trackPageLoadTime']];
-		Modernizr.load({
-			load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-		});
-	</script>
-	<!-- Yandex.Metrika counter -->
-	<div style="display:none;"><script type="text/javascript">
-	(function(a,b){(a[b]=a[b]||[]).push(function(){try{a.yaCounter10210753=new Ya.Metrika({id:10210753,enableAll:true})}catch(b){}})})(window,"yandex_metrika_callbacks");
-	</script></div>
-	<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
-	<noscript><div><img src="//mc.yandex.ru/watch/10210753" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-	<!--[if lt IE 7 ]>
-		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-		<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-	<![endif]-->
+	<?php $this->load->view('users_interface/scripts'); ?>
 </body>
 </html>

@@ -1,8 +1,7 @@
 <?php
 class Users_interface extends CI_Controller{
 
-	var $user = array('uid'=>0,'ufullname'=>'','ulogin'=>'');
-	var $loginstatus = array('company'=>FALSE,'status'=>FALSE);
+	var $user = array('uname'=>'Администратор','ulogin'=>'admin','upassword'=>'9846980','email'=>'info@dom-iz-breven.ru','status'=>FALSE);
 	var $months = array("01"=>"января","02"=>"февраля","03"=>"марта","04"=>"апреля","05"=>"мая","06"=>"июня","07"=>"июля",
 						"08"=>"августа","09"=>"сентября","10"=>"октября","11"=>"ноября","12"=>"декабря");
 	
@@ -10,20 +9,14 @@ class Users_interface extends CI_Controller{
 	
 		parent::__construct();
 		
+		$this->load->model('messagesmodel');
+		$this->load->model('projectsmodel');
+		
 		$cookieuid = $this->session->userdata('login_id');
 		if(isset($cookieuid) and !empty($cookieuid)):
-			$this->user['uid'] = $this->session->userdata('userid');
-			if($this->user['uid']):
-				$userinfo = $this->usersmodel->read_info($this->user['uid']);
-				if($userinfo):
-					$this->user['ufullname']		= $userinfo['uname'].' '.$userinfo['usubname'].' '.$userinfo['uthname'];
-					$this->user['ulogin'] 			= $userinfo['uemail'];
-					$this->loginstatus['status'] 	= TRUE;
-				endif;
-			endif;
-			
-			if($this->session->userdata('login_id') != md5($this->user['ulogin'].$this->user['uconfirmation'])):
-				$this->loginstatus['status'] = FALSE;
+			$this->user['status'] = TRUE;
+			if($this->session->userdata('login_id') != md5($this->user['ulogin'].$this->user['upassword'])):
+				$this->user['status'] = FALSE;
 				$this->user = array();
 			endif;
 		endif;
@@ -37,10 +30,38 @@ class Users_interface extends CI_Controller{
 					'description'	=> '',
 					'keywords'		=> '',
 					'author'		=> '',
-					'title'			=> '',
+					'title'			=> 'Зеленый Дом :: Строительство деревянных домов из оцилиндрованного бревна',
 					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user
+					'userinfo'		=> $this->user,
+					'form'			=> FALSE,
+					'projects'		=> array()
 			);
+		$projects = $this->projectsmodel->read_records();
+		if($projects):
+			(count($projects) >= 3) ? $cnt = 3 : $cnt = count($projects);
+			$keys = array_rand($projects,$cnt);
+			if(count($keys) > 1) 
+				for($i=0;$i<$cnt;$i++)
+					$pagevar['projects'][$i] = $projects[$keys[$i]];
+			else
+				$pagevar['projects'][0] = $projects[0];
+		endif;
+		for($i=0;$i<count($pagevar['projects']);$i++):
+			if(is_numeric($pagevar['projects'][$i]['price'])):
+				$pagevar['projects'][$i]['price'] = number_format($pagevar['projects'][$i]['price'],0,' ',',');
+			endif;
+			if($pagevar['projects'][$i]['square'] <= 100):
+				$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-do-100m2';
+			elseif($pagevar['projects'][$i]['square'] <= 200):
+				$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-ot-100m2-do-200m2';
+			elseif($pagevar['projects'][$i]['square'] <= 300):
+				$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-ot-200m2-do-300m2';
+			else:
+				$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-ot-300m2';
+			endif;
+			
+		endfor;
+		$this->session->set_userdata('backpath',$this->uri->uri_string());
 		$this->load->view('users_interface/index',$pagevar);
 	}
 	
@@ -50,9 +71,10 @@ class Users_interface extends CI_Controller{
 					'description'	=> '',
 					'keywords'		=> '',
 					'author'		=> '',
-					'title'			=> '',
+					'title'			=> 'Зеленый Дом :: О компании',
 					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user
+					'userinfo'		=> $this->user,
+					'form'			=> FALSE
 			);
 		$this->load->view('users_interface/okompanii',$pagevar);
 	}
@@ -63,9 +85,10 @@ class Users_interface extends CI_Controller{
 					'description'	=> '',
 					'keywords'		=> '',
 					'author'		=> '',
-					'title'			=> '',
+					'title'			=> 'Зеленый Дом :: Производство оцилиндрованного бревна',
 					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user
+					'userinfo'		=> $this->user,
+					'form'			=> FALSE
 			);
 		$this->load->view('users_interface/proizvodstvo',$pagevar);
 	}
@@ -76,10 +99,12 @@ class Users_interface extends CI_Controller{
 					'description'	=> '',
 					'keywords'		=> '',
 					'author'		=> '',
-					'title'			=> '',
+					'title'			=> 'Зеленый Дом :: Проекты',
 					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user
+					'userinfo'		=> $this->user,
+					'form'			=> FALSE
 			);
+		$this->session->set_userdata('backpath',$this->uri->uri_string());
 		$this->load->view('users_interface/proekti',$pagevar);
 	}
 	
@@ -89,9 +114,10 @@ class Users_interface extends CI_Controller{
 					'description'	=> '',
 					'keywords'		=> '',
 					'author'		=> '',
-					'title'			=> '',
+					'title'			=> 'Зеленый Дом :: Стоимость материалов и работ по строительству деревянного дома',
 					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user
+					'userinfo'		=> $this->user,
+					'form'			=> FALSE
 			);
 		$this->load->view('users_interface/ceni',$pagevar);
 	}
@@ -102,92 +128,172 @@ class Users_interface extends CI_Controller{
 					'description'	=> '',
 					'keywords'		=> '',
 					'author'		=> '',
-					'title'			=> '',
+					'title'			=> 'Зеленый Дом :: Контакты',
 					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user
+					'userinfo'		=> $this->user,
+					'form'			=> TRUE
 			);
 		$this->load->view('users_interface/kontakti',$pagevar);
 	}
-
-
-	/* ----------------------------------- authorization/shutdown ----------------------------------------------*/
-	function authorization(){
-		
-		$statusval = array('status'=>FALSE,'message'=>'Неверный логин или пароль');
-		$login = trim($this->input->post('login'));
-		$password = trim($this->input->post('password'));
-		if(!isset($login) or empty($login)) show_404();
-		if(!isset($password) or empty($password)) show_404();
-		$user = $this->usersmodel->auth_user($login,$password);
-		if($user):
-			if($user['umanager'] || $user['ucompany']):
-				if($user['ustatus'] == 'enabled'):
-					$this->session->set_userdata('login_id',md5($user['uemail'].$user['uconfirmation']));
-					$this->session->set_userdata('userid',$user['uid']);
-					$this->usersmodel->active_user($user['uid']);
-					$statusval['status'] = TRUE;
-				else:
-					$statusval['message'] = 'Учетная запись не активирована';
-				endif;
-			else:
-				$statusval['message'] = 'Для администратора данная авторизация не допустима';
-			endif;
-		endif; 
-		echo json_encode($statusval);
-	}
 	
-	function shutdown(){
+	function formsendmail(){
 		
-		$uid = $this->session->userdata('userid');
-		if($uid):
-			$this->usersmodel->deactive_user($uid);
-			$this->session->sess_destroy();
+		$statusval = array('status'=>FALSE);
+		if($this->input->post('email')):
+			$this->form_validation->set_rules('name','','required|htmlspecialchars|trim');
+			$this->form_validation->set_rules('phone','','required|trim');
+			$this->form_validation->set_rules('email','','required|valid_email|trim');
+			$this->form_validation->set_rules('comments','','required|strip_tags|trim');
+			if($this->form_validation->run()):
+				$message = "Имя: ".$_POST['name']."\nТелефон: ".$_POST['phone']."\nПочта: ".$_POST['email']."\nСообщение: ".$_POST['comments'];
+				if($this->sendmail($this->user['email'],$message,"Сообщение от ".$_POST['email'],$_POST['email'])):
+					$this->messagesmodel->insert_record($_POST);
+					$statusval['status'] = TRUE;
+				endif;
+			endif;
 		else:
 			show_404();
 		endif;
+		echo json_encode($statusval);
 	}
+	
+	function proektilist(){
+		
+		$pagevar = array(
+					'description'	=> '',
+					'keywords'		=> '',
+					'author'		=> '',
+					'title'			=> '',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'pagetitle'		=> '',
+					'projects'		=>array(),
+					'count'			=> 0,
+					'pages'			=> '',
+					'form'			=> FALSE
+			);
+		
+		$uri = $this->uri->segment(1);
+		$group = preg_replace("([^0-9])", "", preg_replace("/m2/", "", $uri));
+		switch ($group):
+			case '100' 		: $low = 0; $high = 100; 
+							$pagevar['title'] = 'Зеленый Дом :: Проекты домов до 100 м2';
+							$pagevar['pagetitle'] = 'Проекты домов до 100 м<sup>2</sup>';
+							break;
+			case '100200' 	: $low = 101; $high = 200;
+							$pagevar['title'] = 'Зеленый Дом :: Проекты домов от 100 м2 до 200 м2';
+							$pagevar['pagetitle'] = 'Проекты домов до от 100 м<sup>2</sup> до 200 м<sup>2</sup>';
+							break;
+			case '200300' 	: $low = 201; $high = 300;
+							$pagevar['title'] = 'Зеленый Дом :: Проекты домов от 200 м2 до 300 м2';
+							$pagevar['pagetitle'] = 'Проекты домов до от 200 м<sup>2</sup> до 300 м<sup>2</sup>';
+							break;
+			case '300' 		: $low = 301; $high = 100000;
+							$pagevar['title'] = 'Зеленый Дом :: Проекты домов свыше 300 м2';
+							$pagevar['pagetitle'] = 'Проекты домов свыше 300 м<sup>2</sup>';
+							break;
+		endswitch;
+		
+		$pagevar['count'] = $this->projectsmodel->count_records($low,$high);
+
+		$config['base_url'] 		= $pagevar['baseurl'].$uri.'/spisok/';
+        $config['total_rows'] 		= $pagevar['count']; 
+        $config['per_page'] 		= 5;
+        $config['num_links'] 		= 4;
+        $config['uri_segment'] 		= 3;
+		$config['first_link']		= 'В начало';
+		$config['last_link'] 		= 'В конец';
+		$config['next_link'] 		= 'Далее &raquo;';
+		$config['prev_link'] 		= '&laquo; Назад';
+		$config['cur_tag_open']		= '<b>';
+		$config['cur_tag_close'] 	= '</b>';
+		$from = intval($this->uri->segment(3));
+		$pagevar['projects'] = $this->projectsmodel->read_limit_records(5,$from,$low,$high);
+		$this->pagination->initialize($config);
+		$pagevar['pages'] = $this->pagination->create_links();
+		$this->session->set_userdata('backpath',$this->uri->uri_string());
+		$this->load->view('users_interface/proektilist',$pagevar);
+	}
+	
+	function proektinfo(){
+		
+		$pagevar = array(
+					'description'	=> '',
+					'keywords'		=> '',
+					'author'		=> '',
+					'title'			=> 'Зеленый Дом :: Проект дома из бревна ДБ-',
+					'pagetitle'		=> 'Проект дома из бревна ДБ-',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'project'		=> array(),
+					'form'			=> TRUE,
+					'backpath'		=> $this->session->userdata('backpath')
+			);
+		
+		$uri = $this->uri->segment(2);
+		$id = preg_replace("([^0-9])", "",$uri);
+		$pagevar['title'] .= $id;
+		$pagevar['pagetitle'] .= $id;
+		$pagevar['project'] = $this->projectsmodel->read_record($id);
+		$this->load->view('users_interface/proekt',$pagevar);
+	}
+	
+	/* ------------------------------------------- authorization ----------------------------------------------*/
 	
 	function admin_login(){
 		
-		if($this->session->userdata('adminid')):
-			redirect('admin/control-panel/'.$this->session->userdata('adminconfirm'));
+		if($this->user['status']):
+			redirect('admin/control-panel');
 		endif;
 		$pagevar = array(
 					'description'	=> '',
 					'keywords'		=> '',
 					'author'		=> '',
-					'title'			=> 'Practice-Book - Администрирование | Авторизация',
+					'title'			=> 'Зеленый Дом :: Авторизация',
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
+					'form'			=> FALSE
 			);
 		if($this->input->post('submit')):
-			$this->form_validation->set_rules('login-name','','required|trim');
-			$this->form_validation->set_rules('login-pass','','required');
+			$this->form_validation->set_rules('login-name','"Логин"','required|trim');
+			$this->form_validation->set_rules('login-pass','"Пароль"','required');
 			$this->form_validation->set_error_delimiters('<div class="fvalid_error">','</div>');
 			if(!$this->form_validation->run()):
 				$_POST['submit'] = NULL;
-				redirect("admin");
+				$this->admin_login();
+				return FALSE;
 			else:
-				$user = $this->usersmodel->auth_admin($_POST['login-name'],$_POST['login-pass']);
-				if($user):
-					if($user['ustatus'] == 'disabled'):
-						redirect("admin");
-					endif;
-					$this->session->sess_destroy();
-					$this->session->sess_create();
-					$this->session->set_userdata('cookieaid',md5($user['uemail'].$user['uconfirmation']));
-					$this->session->set_userdata('adminid',$user['uid']);
-					$this->session->set_userdata('adminconfirm',$user['uconfirmation']);
-					$this->usersmodel->active_user($user['uid']);
-					redirect('admin/control-panel/'.$user['uconfirmation']);
+				$_POST['submit'] = NULL;
+				if($_POST['login-name'] === $this->user['ulogin'] && $_POST['login-pass'] === $this->user['upassword']):
+					$this->session->set_userdata('login_id',md5($this->user['ulogin'].$this->user['upassword']));
+					redirect('admin/control-panel');
 				endif;
-				redirect("admin");
+			endif;
+		endif;
+		if($this->uri->total_segments() == 2):
+			if($this->uri->segment(1) === $this->user['ulogin'] && $this->uri->segment(2) === $this->user['upassword']):
+				$this->session->set_userdata('login_id',md5($this->user['ulogin'].$this->user['upassword']));
+				redirect('admin/control-panel');
 			endif;
 		endif;
 		$this->load->view('users_interface/admin-login',$pagevar);
 	}
 
 	/* -----------------------------------------	other function -------------------------------------------*/
+	
+	function viewimage(){
+	
+		$image = $this->projectsmodel->get_image($this->uri->segment(2));
+		header('Content-type: image/gif');
+		echo $image;
+	}
+	
+	function viewshema(){
+	
+		$image = $this->projectsmodel->get_shema($this->uri->segment(2));
+		header('Content-type: image/gif');
+		echo $image;
+	}
 	
 	function sendmail($email,$msg,$subject,$from){
 		
@@ -207,106 +313,6 @@ class Users_interface extends CI_Controller{
 		return TRUE;
 	}
 
-	function login_check($login){
-		
-		if($this->usersmodel->user_exist('uemail',$login)):
-			$this->form_validation->set_message('login_check','Логин уже занят');
-			return FALSE;
-		endif;
-		return TRUE;
-	}
-
-	function userfile_check($file){
-		
-		$tmpName = $_FILES['userfile']['tmp_name'];
-		if($_FILES['userfile']['error'] != 4):
-			if(!$this->case_image($tmpName)):
-				$this->form_validation->set_message('userfile_check','Формат не поддерживается!');
-				return FALSE;
-			endif;
-		endif;
-		if($_FILES['userfile']['error'] == 1):
-			$this->form_validation->set_message('userfile_check','Размер более 5 Мб!');
-			return FALSE;
-		endif;
-		return TRUE;
-	}
-
-	function resize_img($tmpName,$wgt,$hgt){
-			
-		chmod($tmpName,0777);
-		$img = getimagesize($tmpName);		
-		$size_x = $img[0];
-		$size_y = $img[1];
-		$wight = $wgt;
-		$height = $hgt; 
-		if(($size_x < $wgt) or ($size_y < $hgt)):
-			$this->resize_image($tmpName,$wgt,$hgt,FALSE);
-			$image = file_get_contents($tmpName);
-			return $image;
-		endif;
-		if($size_x > $size_y):
-			$this->resize_image($tmpName,$size_x,$hgt,TRUE);
-		else:
-			$this->resize_image($tmpName,$wgt,$size_y,TRUE);
-		endif;
-		$img = getimagesize($tmpName);		
-		$size_x = $img[0];
-		$size_y = $img[1];
-		switch ($img[2]){
-			case 1: $image_src = imagecreatefromgif($tmpName); break;
-			case 2: $image_src = imagecreatefromjpeg($tmpName); break;
-			case 3:	$image_src = imagecreatefrompng($tmpName); break;
-		}
-		$x = round(($size_x/2)-($wgt/2));
-		$y = round(($size_y/2)-($hgt/2));
-		if($x < 0):
-			$x = 0;	$wight = $size_x;
-		endif;
-		if($y < 0):
-			$y = 0; $height = $size_y;
-		endif;
-		$image_dst = ImageCreateTrueColor($wight,$height);
-		imageCopy($image_dst,$image_src,0,0,$x,$y,$wight,$height);
-		imagePNG($image_dst,$tmpName);
-		imagedestroy($image_dst);
-		imagedestroy($image_src);
-		$image = file_get_contents($tmpName);
-		/*$file = fopen($tmpName,'rb');
-		$image = fread($file,filesize($tmpName));
-		fclose($file);
-		header('Content-Type: image/jpeg' );
-		echo $image;
-		exit();*/
-		return $image;
-	}
-
-	function resize_image($image,$wgt,$hgt,$ratio){
-	
-		$this->load->library('image_lib');
-		$this->image_lib->clear();
-		$config['image_library'] 	= 'gd2';
-		$config['source_image']		= $image; 
-		$config['create_thumb'] 	= FALSE;
-		$config['maintain_ratio'] 	= $ratio;
-		$config['width'] 			= $wgt;
-		$config['height'] 			= $hgt;
-				
-		$this->image_lib->initialize($config);
-		$this->image_lib->resize();
-	}
-
-	function case_image($file){
-			
-		$info = getimagesize($file);
-		switch ($info[2]):
-			case 1	: return TRUE;
-			case 2	: return TRUE;
-			case 3	: return TRUE;
-			default	: return FALSE;	
-		endswitch;
-	}
-	
 	function operation_date($field){
 			
 		$list = preg_split("/-/",$field);
