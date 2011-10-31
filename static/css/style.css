@@ -117,8 +117,8 @@ h4 a { color: #164f23 !important; }
 
 /*============== Price ===================*/
 .table { border-left: 1px solid rgba(0, 0, 0, 0.1); border-top: 1px solid rgba(0, 0, 0, 0.1); margin-bottom: 25px; }
-.table th, .table td { border-bottom: 1px solid rgba(0, 0, 0, 0.1); border-right: 1px solid rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; font-weight: normal; background: rgba(0, 0, 0, 0.04); -moz-text-shadow: 0 1px 0 #eee; -webkit-text-shadow: 0 1px 0 #eee; text-shadow: 0 1px 0 #eee; }
-.table td.txt_left { text-align: left;}
+.table th, .table td { border-bottom: 1px solid rgba(0, 0, 0, 0.1); border-right: 1px solid rgba(0, 0, 0, 0.1); padding: 10px; text-align: center; font-size: 13px; background: rgba(0, 0, 0, 0.04); -moz-text-shadow: 0 1px 0 #eee; -webkit-text-shadow: 0 1px 0 #eee; text-shadow: 0 1px 0 #eee; }
+.table td.txt_left, .table th.txt_left { text-align: left;}
 strong.payment-step { color: #52881E; display: block; font-size: 22px; font-style: italic; margin: 20px 0 18px;}
 
 /*============== Order ===================*/
