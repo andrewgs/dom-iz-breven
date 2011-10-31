@@ -43,6 +43,72 @@ class Users_interface extends CI_Controller{
 			);
 		$this->load->view('users_interface/index',$pagevar);
 	}
+	
+	function okompanii(){
+		
+		$pagevar = array(
+					'description'	=> '',
+					'keywords'		=> '',
+					'author'		=> '',
+					'title'			=> '',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user
+			);
+		$this->load->view('users_interface/okompanii',$pagevar);
+	}
+	
+	function proizvodstvo(){
+		
+		$pagevar = array(
+					'description'	=> '',
+					'keywords'		=> '',
+					'author'		=> '',
+					'title'			=> '',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user
+			);
+		$this->load->view('users_interface/proizvodstvo',$pagevar);
+	}
+	
+	function proekti(){
+		
+		$pagevar = array(
+					'description'	=> '',
+					'keywords'		=> '',
+					'author'		=> '',
+					'title'			=> '',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user
+			);
+		$this->load->view('users_interface/proekti',$pagevar);
+	}
+	
+	function ceni(){
+		
+		$pagevar = array(
+					'description'	=> '',
+					'keywords'		=> '',
+					'author'		=> '',
+					'title'			=> '',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user
+			);
+		$this->load->view('users_interface/ceni',$pagevar);
+	}
+
+	function kontakti(){
+		
+		$pagevar = array(
+					'description'	=> '',
+					'keywords'		=> '',
+					'author'		=> '',
+					'title'			=> '',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user
+			);
+		$this->load->view('users_interface/kontakti',$pagevar);
+	}
+
 
 	/* ----------------------------------- authorization/shutdown ----------------------------------------------*/
 	function authorization(){
