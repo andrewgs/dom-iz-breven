@@ -11,10 +11,11 @@
 <meta name="author" content="<?=$author;?>">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- CSS concatenated and minified via ant build script-->
-<link rel="stylesheet" href="<?=$baseurl;?>css/style.css">
-<link rel="stylesheet" href="<?=$baseurl;?>css/960.css">
+<link rel="stylesheet" href="<?=$baseurl;?>css/style.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="<?=$baseurl;?>css/960.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="<?=$baseurl;?>css/prettyphoto.css" type="text/css" media="screen"/>
 <?php if($form):?>
-<link rel="stylesheet" href="<?=$baseurl;?>css/jquery.jgrowl.css">
+<link rel="stylesheet" href="<?=$baseurl;?>css/jquery.jgrowl.css" type="text/css" media="screen"/>
 <?php endif;?>
 <!-- end CSS-->
 <script src="<?=$baseurl;?>js/libs/modernizr-2.0.6.min.js"></script>

@@ -65,17 +65,19 @@
 	    	<div class="grid_12">
 		    	<h2>Проекты домов</h2>
 	    	</div>
-		<?php for($i=0;$i<count($projects);$i++):?>	
-	    	<div class="grid_3">
-	    		<div class="home-preview" style="background-image: url(<?=$baseurl?>viewthumb/<?=$projects[$i]['id']?>);"> </div>
-	    		<h4>
-					<a href="<?=$baseurl.$projects[$i]['uri'];?>/proekt-db-<?=$projects[$i]['id'];?>">
-						Дом из оцилиндрованного бревна ДБ-<?=$projects[$i]['id']?>
-					</a>
-				</h4>
-	    		<p>Плошадь: <?=$projects[$i]['square'];?> м<sup>2</sup><br/>
-	    		Стоимость: <?=$projects[$i]['price'];?>руб.</p>
-	    	</div>
+		<?php for($i=0;$i<count($projects);$i++):?>
+			<?php if(isset($projects[$i]['id'])): ?>
+		    	<div class="grid_3">
+		    		<div class="home-preview" style="background-image: url(<?=$baseurl?>viewthumb/<?=$projects[$i]['id']?>);"> </div>
+		    		<h4>
+						<a href="<?=$baseurl.$projects[$i]['uri'];?>/proekt-db-<?=$projects[$i]['id'];?>">
+							Дом из оцилиндрованного бревна ДБ-<?=$projects[$i]['id']?>
+						</a>
+					</h4>
+		    		<p>Плошадь: <?=$projects[$i]['square'];?> м<sup>2</sup><br/>
+		    		Стоимость: <?=$projects[$i]['price'];?>руб.</p>
+		    	</div>
+			<?php endif;?>
 		<?php endfor;?>
 			<div class="grid_12 block-separator"></div>
 		</div>
