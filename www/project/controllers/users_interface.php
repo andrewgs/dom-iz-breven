@@ -40,16 +40,16 @@ class Users_interface extends CI_Controller{
 		$pagevar['projects'][1] = $this->projectsmodel->read_rundom(101,200);
 		$pagevar['projects'][2] = $this->projectsmodel->read_rundom(200,300);
 		$pagevar['projects'][3] = $this->projectsmodel->read_rundom(300,10000);
-		
 		for($i=0;$i<count($pagevar['projects']);$i++):
+			if(empty($pagevar['projects'][$i])) continue;
 			if(is_numeric($pagevar['projects'][$i]['price'])):
 				$pagevar['projects'][$i]['price'] = number_format($pagevar['projects'][$i]['price'],0,' ',',');
 			endif;
+			$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-do-100m2';
+			$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-ot-100m2-do-200m2';
+			$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-ot-200m2-do-300m2';
+			$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-ot-300m2';
 		endfor;
-		$pagevar['projects'][0]['uri'] = 'proekti-derevyannih-domov-do-100m2';
-		$pagevar['projects'][1]['uri'] = 'proekti-derevyannih-domov-ot-100m2-do-200m2';
-		$pagevar['projects'][2]['uri'] = 'proekti-derevyannih-domov-ot-200m2-do-300m2';
-		$pagevar['projects'][3]['uri'] = 'proekti-derevyannih-domov-ot-300m2';
 		$this->session->set_userdata('backpath',$this->uri->uri_string());
 		$this->load->view('users_interface/index',$pagevar);
 	}

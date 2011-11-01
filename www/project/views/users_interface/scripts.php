@@ -3,6 +3,7 @@
 <!-- scripts concatenated and minified via ant build script-->
 <script defer src="<?=$baseurl;?>js/plugins.js"></script>
 <script defer src="<?=$baseurl;?>js/script.js"></script>
+<script src="<?=$baseurl;?>js/jquery.prettyphoto.js"></script>
 <?php if($form):?>
 	<script defer src="<?=$baseurl;?>js/jquery.jgrowl.js"></script>
 	<script type="text/javascript">

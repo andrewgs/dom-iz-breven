@@ -46,7 +46,7 @@ class Projectsmodel extends CI_Model {
 	
 		$this->square= $data['square'];
 		$this->price = round($data['square']*$price);
-		$this->text  = strip_tags($data['text'],'<br>');
+		$this->text  = $data['text'];
 		$this->image = $data['image'];
 		$this->shema = $data['shema'];
 		$this->thumb = $data['thumb'];

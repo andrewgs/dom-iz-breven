@@ -9,14 +9,14 @@
 	    	</div>
 	    	<div class="grid_6">
 	    		<div class="project-adv">
-	    			<img alt="Дом из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2" src="<?=$baseurl;?>/viewimage/<?=$project['id'];?>">
+					<a href="<?=$baseurl;?>/viewimage/<?=$project['id'];?>" rel="prettyPhoto[gallery1]" title="Дом из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2"><img alt="Дом из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2" src="<?=$baseurl;?>/viewimage/<?=$project['id'];?>"></a>
 	    		</div>
 	    		<p>Плошадь: <?=$project['square'];?> м<sup>2</sup><br/>
 	    		Стоимость: <?=$project['price'];?>руб.</p>
 	    	</div>
 	    	<div class="grid_6">
 	    		<div class="project-adv">
-	    			<img alt="Схема проекта дома из оцилиндрованного бревна ДБ-<?=$project['id']?>" src="<?=$baseurl;?>/viewshema/<?=$project['id'];?>">
+					<a href="<?=$baseurl;?>/viewimage/<?=$project['id'];?>" rel="prettyPhoto[gallery1]" title="Схема проекта дома из оцилиндрованного бревна ДБ-<?=$project['id']?>"><img alt="Схема проекта дома из оцилиндрованного бревна ДБ-<?=$project['id']?>" src="<?=$baseurl;?>/viewshema/<?=$project['id'];?>"></a>
 	    		</div>
 	    		<p class="home-parameters">
 	    			<?=$project['text']?>
