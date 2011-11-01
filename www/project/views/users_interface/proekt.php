@@ -4,23 +4,22 @@
 		<?php $this->load->view('users_interface/header'); ?>
 	    <div id="main" class="container_12 clearfix">
 	    	<div class="grid_12">
+		    	<?=anchor($backpath,'&laquo; Вернуться назад', array('class'=>'green-link'));?>
 	    		<h1><?=$pagetitle;?></h1>
-	    		<h3><?=anchor($backpath,'Вернуться назад');?></h3>
 	    	</div>
 	    	<div class="grid_6">
-	    		<div class="project-adv">
-					<a href="<?=$baseurl;?>/viewimage/<?=$project['id'];?>" rel="prettyPhoto[gallery1]" title="Дом из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2"><img alt="Дом из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2" src="<?=$baseurl;?>/viewimage/<?=$project['id'];?>"></a>
+	    		<div class="project-adv gallery">
+					<a href="<?=$baseurl;?>viewimage/<?=$project['id'];?>" rel="prettyPhoto" title="Дом из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2"><img alt="Дом из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2" src="<?=$baseurl;?>viewimage/<?=$project['id'];?>"></a>
 	    		</div>
-	    		<p>Плошадь: <?=$project['square'];?> м<sup>2</sup><br/>
-	    		Стоимость: <?=$project['price'];?>руб.</p>
 	    	</div>
 	    	<div class="grid_6">
-	    		<div class="project-adv">
-					<a href="<?=$baseurl;?>/viewimage/<?=$project['id'];?>" rel="prettyPhoto[gallery1]" title="Схема проекта дома из оцилиндрованного бревна ДБ-<?=$project['id']?>"><img alt="Схема проекта дома из оцилиндрованного бревна ДБ-<?=$project['id']?>" src="<?=$baseurl;?>/viewshema/<?=$project['id'];?>"></a>
+	    		<div class="project-adv gallery">
+					<a href="<?=$baseurl;?>viewshema/<?=$project['id'];?>" rel="prettyPhoto" title="Схема проекта дома из оцилиндрованного бревна ДБ-<?=$project['id']?>"><img alt="Схема проекта дома из оцилиндрованного бревна ДБ-<?=$project['id']?>" src="<?=$baseurl;?>viewshema/<?=$project['id'];?>"></a>
 	    		</div>
 	    		<p class="home-parameters">
 	    			<?=$project['text']?>
 	    		</p>
+	    		<p><strong>Ориентировочная стоимость</strong>: <?=$project['price'];?> руб.</p>
 	    	</div>
 			<div class="clear"></div>
 			<?php $this->load->view('forms/frmsendmail'); ?>

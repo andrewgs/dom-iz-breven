@@ -14,7 +14,6 @@
 <link rel="stylesheet" href="<?=$baseurl;?>css/style.css">
 <link rel="stylesheet" href="<?=$baseurl;?>css/960.css">
 <link rel="stylesheet" href="<?=$baseurl;?>css/jquery.jgrowl.css">
-<link rel="stylesheet" href="<?=$baseurl;?>css/admin.css">
 <link rel="stylesheet" href="<?=$baseurl;?>js/redactor/css/redactor.css" />
 <!-- end CSS-->
 <script src="<?=$baseurl;?>js/libs/modernizr-2.0.6.min.js"></script>
