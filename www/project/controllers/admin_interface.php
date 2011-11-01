@@ -80,6 +80,7 @@ class Admin_interface extends CI_Controller{
 			else:
 				$_POST['submit'] = NULL;
 				$_POST['image'] = $this->resize_image($_FILES['userfile1']['tmp_name'],400,300,TRUE);
+				$_POST['thumb'] = $this->resize_image($_FILES['userfile1']['tmp_name'],220,170,TRUE);
 				$_POST['shema'] = $this->resize_image($_FILES['userfile2']['tmp_name'],400,215,TRUE);
 				$_POST['text'] = preg_replace('/\n{2}/','<br>',$_POST['text']);
 				$this->projectsmodel->insert_record($_POST,17000);

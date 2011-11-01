@@ -66,8 +66,8 @@
 		    	<h2>Проекты домов</h2>
 	    	</div>
 		<?php for($i=0;$i<count($projects);$i++):?>	
-	    	<div class="grid_4">
-	    		<div class="home-preview" style="background-image: url(<?=$baseurl?>/viewimage/<?=$projects[$i]['id']?>); width:270px;"> </div>
+	    	<div class="grid_3">
+	    		<div class="home-preview" style="background-image: url(<?=$baseurl?>viewthumb/<?=$projects[$i]['id']?>);"> </div>
 	    		<h4>
 					<a href="<?=$baseurl.$projects[$i]['uri'];?>/proekt-db-<?=$projects[$i]['id'];?>">
 						Дом из оцилиндрованного бревна ДБ-<?=$projects[$i]['id']?>

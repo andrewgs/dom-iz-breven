@@ -7,6 +7,7 @@ class Projectsmodel extends CI_Model {
 	var $text 	= "";
 	var $image	= 0;
 	var $shema	= 0;
+	var $thumb	= 0;
 	
 	function __construct(){
         
@@ -18,6 +19,15 @@ class Projectsmodel extends CI_Model {
 		$this->db->select('id,square,price,text');
 		$this->db->where('id',$id);
 		$query = $this->db->get('projects',1);
+		$data = $query->result_array();
+		if(isset($data[0])) return $data[0];
+		return FALSE;
+	}
+	
+	function read_rundom($low,$high){
+	
+		$query = "SELECT id,square,price,text FROM projects WHERE square >= $low AND square <= $high ORDER BY RAND() LIMIT 1";
+		$query = $this->db->query($query);
 		$data = $query->result_array();
 		if(isset($data[0])) return $data[0];
 		return FALSE;
@@ -39,6 +49,7 @@ class Projectsmodel extends CI_Model {
 		$this->text  = strip_tags($data['text'],'<br>');
 		$this->image = $data['image'];
 		$this->shema = $data['shema'];
+		$this->thumb = $data['thumb'];
 		$this->db->insert('projects',$this);
 		return $this->db->insert_id();
 	}
@@ -97,6 +108,15 @@ class Projectsmodel extends CI_Model {
 		$query = $this->db->get('projects');
 		$data = $query->result_array();
 		return $data[0]['shema'];
+	}
+	
+	function get_thumb($id){
+		
+		$this->db->where('id',$id);
+		$this->db->select('thumb');
+		$query = $this->db->get('projects');
+		$data = $query->result_array();
+		return $data[0]['thumb'];
 	}
 }
 ?>

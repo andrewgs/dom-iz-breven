@@ -15,6 +15,7 @@ $route['send-mail'] = "users_interface/formsendmail";
 
 $route['viewimage/:num'] = "users_interface/viewimage";
 $route['viewshema/:num'] = "users_interface/viewshema";
+$route['viewthumb/:num'] = "users_interface/viewsthumb";
 
 $route['proekti-derevyannih-domov-do-100m2'] = "users_interface/proektilist";
 $route['proekti-derevyannih-domov-do-100m2/spisok'] = "users_interface/proektilist";

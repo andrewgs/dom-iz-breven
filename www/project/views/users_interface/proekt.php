@@ -11,7 +11,8 @@
 	    		<div class="project-adv">
 	    			<img alt="Дом из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2" src="<?=$baseurl;?>/viewimage/<?=$project['id'];?>">
 	    		</div>
-	    		
+	    		<p>Плошадь: <?=$project['square'];?> м<sup>2</sup><br/>
+	    		Стоимость: <?=$project['price'];?>руб.</p>
 	    	</div>
 	    	<div class="grid_6">
 	    		<div class="project-adv">

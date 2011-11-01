@@ -91,7 +91,7 @@ header .top { height: 80px; }
 .slider { margin: 23px 0 7px; }
 
 .block-separator { height: 1px; width: 100%; background: rgba(0, 0, 0, 0.1); margin: 10px 0; }
-.home-preview { /*border: 3px solid #90987f;*/ width: 270px; height: 170px; overflow: hidden;
+.home-preview { /*border: 3px solid #90987f;*/ width: 220px; height: 170px; overflow: hidden;
 	    -moz-border-radius: 5px; 
 	 -webkit-border-radius: 5px; 
 	 	 	 border-radius: 5px; 

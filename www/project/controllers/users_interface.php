@@ -36,31 +36,20 @@ class Users_interface extends CI_Controller{
 					'form'			=> FALSE,
 					'projects'		=> array()
 			);
-		$projects = $this->projectsmodel->read_records();
-		if($projects):
-			(count($projects) >= 3) ? $cnt = 3 : $cnt = count($projects);
-			$keys = array_rand($projects,$cnt);
-			if(count($keys) > 1) 
-				for($i=0;$i<$cnt;$i++)
-					$pagevar['projects'][$i] = $projects[$keys[$i]];
-			else
-				$pagevar['projects'][0] = $projects[0];
-		endif;
+		$pagevar['projects'][0] = $this->projectsmodel->read_rundom(0,100);
+		$pagevar['projects'][1] = $this->projectsmodel->read_rundom(101,200);
+		$pagevar['projects'][2] = $this->projectsmodel->read_rundom(200,300);
+		$pagevar['projects'][3] = $this->projectsmodel->read_rundom(300,10000);
+		
 		for($i=0;$i<count($pagevar['projects']);$i++):
 			if(is_numeric($pagevar['projects'][$i]['price'])):
 				$pagevar['projects'][$i]['price'] = number_format($pagevar['projects'][$i]['price'],0,' ',',');
 			endif;
-			if($pagevar['projects'][$i]['square'] <= 100):
-				$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-do-100m2';
-			elseif($pagevar['projects'][$i]['square'] <= 200):
-				$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-ot-100m2-do-200m2';
-			elseif($pagevar['projects'][$i]['square'] <= 300):
-				$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-ot-200m2-do-300m2';
-			else:
-				$pagevar['projects'][$i]['uri'] = 'proekti-derevyannih-domov-ot-300m2';
-			endif;
-			
 		endfor;
+		$pagevar['projects'][0]['uri'] = 'proekti-derevyannih-domov-do-100m2';
+		$pagevar['projects'][1]['uri'] = 'proekti-derevyannih-domov-ot-100m2-do-200m2';
+		$pagevar['projects'][2]['uri'] = 'proekti-derevyannih-domov-ot-200m2-do-300m2';
+		$pagevar['projects'][3]['uri'] = 'proekti-derevyannih-domov-ot-300m2';
 		$this->session->set_userdata('backpath',$this->uri->uri_string());
 		$this->load->view('users_interface/index',$pagevar);
 	}
@@ -235,6 +224,9 @@ class Users_interface extends CI_Controller{
 		$pagevar['title'] .= $id;
 		$pagevar['pagetitle'] .= $id;
 		$pagevar['project'] = $this->projectsmodel->read_record($id);
+		if(is_numeric($pagevar['project']['price'])):
+			$pagevar['project']['price'] = number_format($pagevar['project']['price'],0,' ',',');
+		endif;
 		$this->load->view('users_interface/proekt',$pagevar);
 	}
 	
@@ -291,6 +283,13 @@ class Users_interface extends CI_Controller{
 	function viewshema(){
 	
 		$image = $this->projectsmodel->get_shema($this->uri->segment(2));
+		header('Content-type: image/gif');
+		echo $image;
+	}
+	
+	function viewsthumb(){
+	
+		$image = $this->projectsmodel->get_thumb($this->uri->segment(2));
 		header('Content-type: image/gif');
 		echo $image;
 	}
