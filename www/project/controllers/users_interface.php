@@ -27,15 +27,15 @@ class Users_interface extends CI_Controller{
 	function index(){
 		
 		$pagevar = array(
-					'description'	=> '',
-					'keywords'		=> '',
-					'author'		=> '',
-					'title'			=> 'Зеленый Дом :: Строительство деревянных домов из оцилиндрованного бревна',
-					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user,
-					'form'			=> FALSE,
-					'projects'		=> array()
-			);
+			'description'	=> 'Мы проектируем и строим современные экологичные, удобные и уютные дома и бани из оцилиндрованного бревна под ключ. Беседки, кафе, рестораны, храмы и малые архитектурные формы из бревна и срубов. Компания Зеленый Дом предлагает низкие цены и широкий выбор готовых проектов деревянных домов.',
+			'keywords'		=> 'дома из оцилиндрованного бревна, ростов-на-дону, оцилиндрованное бревно, производство, деревянные дома, бани, беседки, проекты домов, строительство под ключ, срубы, цены, бревна',
+			'author'		=> 'RealityGroup',
+			'title'			=> 'Дома и бани из оцилиндрованного бревна в Ростове-на-Дону :: Проекты деревянных домов :: Беседки :: Строительство срубов под ключ',
+			'baseurl' 		=> base_url(),
+			'userinfo'		=> $this->user,
+			'form'			=> FALSE,
+			'projects'		=> array()
+		);
 		$pagevar['projects'][0] = $this->projectsmodel->read_rundom(0,100);
 		$pagevar['projects'][1] = $this->projectsmodel->read_rundom(101,200);
 		$pagevar['projects'][2] = $this->projectsmodel->read_rundom(200,300);
@@ -57,24 +57,24 @@ class Users_interface extends CI_Controller{
 	function okompanii(){
 		
 		$pagevar = array(
-					'description'	=> '',
-					'keywords'		=> '',
-					'author'		=> '',
-					'title'			=> 'Зеленый Дом :: О компании',
-					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user,
-					'form'			=> FALSE
-			);
+			'description'	=> 'Зеленый Дом - одна из ведущих строительных компаний по возведению деревянных домов на юге России. Основным видом деятельности компании является строительство современных, экологичных и уютных домов и бань из оцилиндрованного бревна. Дополнительно компания оказывает услуги по проектированию домов, планировке внутреннего пространства и ремонтно-отделочным работам. Мы предлагаем низкие цены и широкий выбор готовых проектов деревянных домов.',
+			'keywords'		=> 'о компании, дома из оцилиндрованного бревна, ростов-на-дону, оцилиндрованное бревно, производство, деревянные дома, бани, беседки, проекты домов, строительство под ключ, срубы, цены, бревна',
+			'author'		=> 'RealityGroup',
+			'title'			=> 'Компания Зеленый Дом :: Строительство домов и бань из оцилиндрованного бревна под ключ в Ростове-на-Дону',
+			'baseurl' 		=> base_url(),
+			'userinfo'		=> $this->user,
+			'form'			=> FALSE
+		);
 		$this->load->view('users_interface/okompanii',$pagevar);
 	}
 	
 	function proizvodstvo(){
 		
 		$pagevar = array(
-					'description'	=> '',
-					'keywords'		=> '',
-					'author'		=> '',
-					'title'			=> 'Зеленый Дом :: Производство оцилиндрованного бревна',
+					'description'	=> 'Производство оцилиндрованного бревна в Кировской области. Оцилиндрованное бревно диаметром 180-340мм, изготавливаемое из высококачественной древесины хвойных пород северных районов. Вся продукция изготовлена из натуральных природных материалов и не оказывает вредного воздействия на организм человека. В наших домах поддерживается естественный микроклимат и оптимальная влажность воздуха.',
+					'keywords'		=> 'дома из оцилиндрованного бревна, ростов-на-дону, оцилиндрованное бревно, производство, деревянные дома, бани, беседки, проекты домов, строительство под ключ, срубы, цены, бревна',
+					'author'		=> 'RealityGroup',
+					'title'			=> 'Производство оцилиндрованного бревна :: Оцилиндрованное бревно диаметром 180-340мм :: Строительство домов и срубов под ключ в Ростове-на-Дону',
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
 					'form'			=> FALSE
@@ -85,14 +85,14 @@ class Users_interface extends CI_Controller{
 	function proekti(){
 		
 		$pagevar = array(
-					'description'	=> '',
-					'keywords'		=> '',
-					'author'		=> '',
-					'title'			=> 'Зеленый Дом :: Проекты',
-					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user,
-					'form'			=> FALSE
-			);
+			'description'	=> 'Мы строим деревянные дома из оцилиндрованного бревна, а также загородные дома, беседки, храмы, рестораны, гостинничные комплексы и другие малые архитектурные формы. В данном разделе представлены проекты в базовой комплектации и планировке. Мы всегда готовы разработать для вас индивидуальный проект дома, опираясь на ваши пожелания и предпочтения.',
+			'keywords'		=> 'дома из оцилиндрованного бревна, ростов-на-дону, оцилиндрованное бревно, производство, деревянные дома, бани, беседки, проекты домов, строительство под ключ, срубы, цены, бревна',
+			'author'		=> 'RealityGroup',
+			'title'			=> 'Проекты домов и бань из оцилиндрованного бревна :: Беседки, ресторны, храмы :: Строительство деревянных домов и срубов недорого в Ростове-на-Дону',
+			'baseurl' 		=> base_url(),
+			'userinfo'		=> $this->user,
+			'form'			=> FALSE
+		);
 		$this->session->set_userdata('backpath',$this->uri->uri_string());
 		$this->load->view('users_interface/proekti',$pagevar);
 	}
@@ -100,28 +100,28 @@ class Users_interface extends CI_Controller{
 	function ceni(){
 		
 		$pagevar = array(
-					'description'	=> '',
-					'keywords'		=> '',
-					'author'		=> '',
-					'title'			=> 'Зеленый Дом :: Стоимость материалов и работ по строительству деревянного дома',
-					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user,
-					'form'			=> FALSE
-			);
+			'description'	=> 'Важным преимуществом строительства дома из оцилиндрованного бревна является стоимость, которая значительно ниже цены возведения строений из других материалов. Мы предлагаем низкие цены и значительные скидки за объем. Компания Зеленый Дом.',
+			'keywords'		=> 'дома из оцилиндрованного бревна, ростов-на-дону, оцилиндрованное бревно, производство, деревянные дома, бани, беседки, проекты домов, строительство под ключ, срубы, цены, бревна',
+			'author'		=> 'RealityGroup',
+			'title'			=> 'Цены на строительство домов и бань из оцилиндрованного бревна в Ростове-на-Дону :: Проекты деревянных домов :: Строительство срубов под ключ',
+			'baseurl' 		=> base_url(),
+			'userinfo'		=> $this->user,
+			'form'			=> FALSE
+		);
 		$this->load->view('users_interface/ceni',$pagevar);
 	}
 
 	function kontakti(){
 		
 		$pagevar = array(
-					'description'	=> '',
-					'keywords'		=> '',
-					'author'		=> '',
-					'title'			=> 'Зеленый Дом :: Контакты',
-					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user,
-					'form'			=> TRUE
-			);
+			'description'	=> 'Контактная информация компании Зеленый Дом. Мы всегда будем рады видеть Вас в нашем офисе, а наша справочная служба готова ответить на любой возникший у Вас вопрос 24 часа в сутки 7 дней в неделю.',
+			'keywords'		=> 'о компании, дома из оцилиндрованного бревна, ростов-на-дону, оцилиндрованное бревно, производство, деревянные дома, бани, беседки, проекты домов, строительство под ключ, срубы, цены, бревна',
+			'author'		=> 'RealityGroup',
+			'title'			=> 'Контакты компании Зеленый Дом :: Строительство домов и бань из оцилиндрованного бревна под ключ в Ростове-на-Дону',
+			'baseurl' 		=> base_url(),
+			'userinfo'		=> $this->user,
+			'form'			=> TRUE
+		);
 		$this->load->view('users_interface/kontakti',$pagevar);
 	}
 	
@@ -131,8 +131,8 @@ class Users_interface extends CI_Controller{
 		if($this->input->post('email')):
 			$this->form_validation->set_rules('name','','required|htmlspecialchars|trim');
 			$this->form_validation->set_rules('phone','','required|trim');
-			$this->form_validation->set_rules('email','','required|valid_email|trim');
-			$this->form_validation->set_rules('comments','','required|strip_tags|trim');
+			$this->form_validation->set_rules('email','','valid_email|trim');
+			$this->form_validation->set_rules('comments','','strip_tags|trim');
 			if($this->form_validation->run()):
 				$message = "Имя: ".$_POST['name']."\nТелефон: ".$_POST['phone']."\nПочта: ".$_POST['email']."\nСообщение: ".$_POST['comments'];
 				if($this->sendmail($this->user['email'],$message,"Сообщение от ".$_POST['email'],$_POST['email'])):
@@ -149,36 +149,36 @@ class Users_interface extends CI_Controller{
 	function proektilist(){
 		
 		$pagevar = array(
-					'description'	=> '',
-					'keywords'		=> '',
-					'author'		=> '',
-					'title'			=> '',
-					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user,
-					'pagetitle'		=> '',
-					'projects'		=>array(),
-					'count'			=> 0,
-					'pages'			=> '',
-					'form'			=> FALSE
-			);
+			'description'	=> 'Мы строим деревянные дома из оцилиндрованного бревна, а также загородные дома, беседки, храмы, рестораны, гостинничные комплексы и другие малые архитектурные формы. В данном разделе представлены проекты в базовой комплектации и планировке. Мы всегда готовы разработать для вас индивидуальный проект дома, опираясь на ваши пожелания и предпочтения.',
+			'keywords'		=> 'дома из оцилиндрованного бревна, ростов-на-дону, оцилиндрованное бревно, производство, деревянные дома, бани, беседки, проекты домов, строительство под ключ, срубы, цены, бревна',
+			'author'		=> 'RealityGroup',
+			'title'			=> 'Проекты домов из оцилиндрованного бревна :: Строительство деревянных домов и срубов недорого в Ростове-на-Дону',
+			'baseurl' 		=> base_url(),
+			'userinfo'		=> $this->user,
+			'pagetitle'		=> '',
+			'projects'		=>array(),
+			'count'			=> 0,
+			'pages'			=> '',
+			'form'			=> FALSE
+		);
 		
 		$uri = $this->uri->segment(1);
 		$group = preg_replace("([^0-9])", "", preg_replace("/m2/", "", $uri));
 		switch ($group):
 			case '100' 		: $low = 0; $high = 100; 
-							$pagevar['title'] = 'Зеленый Дом :: Проекты домов до 100 м2';
+							$pagevar['title'] = 'Проекты домов из оцилиндрованного бревна до 100 м2 :: Строительство деревянных домов и срубов недорого в Ростове-на-Дону';
 							$pagevar['pagetitle'] = 'Проекты домов до 100 м<sup>2</sup>';
 							break;
 			case '100200' 	: $low = 101; $high = 200;
-							$pagevar['title'] = 'Зеленый Дом :: Проекты домов от 100 м2 до 200 м2';
+							$pagevar['title'] = 'Проекты домов из оцилиндрованного бревна от 100 м2 до 200 м2 :: Строительство деревянных домов и срубов недорого в Ростове-на-Дону';
 							$pagevar['pagetitle'] = 'Проекты домов до от 100 м<sup>2</sup> до 200 м<sup>2</sup>';
 							break;
 			case '200300' 	: $low = 201; $high = 300;
-							$pagevar['title'] = 'Зеленый Дом :: Проекты домов от 200 м2 до 300 м2';
+							$pagevar['title'] = 'Проекты домов из оцилиндрованного бревна от 200 м2 до 300 м2 :: Строительство деревянных домов и срубов недорого в Ростове-на-Дону';
 							$pagevar['pagetitle'] = 'Проекты домов до от 200 м<sup>2</sup> до 300 м<sup>2</sup>';
 							break;
 			case '300' 		: $low = 301; $high = 100000;
-							$pagevar['title'] = 'Зеленый Дом :: Проекты домов свыше 300 м2';
+							$pagevar['title'] = 'Проекты домов из оцилиндрованного бревна свыше 300 м2 :: Строительство деревянных домов и срубов недорого в Ростове-на-Дону';
 							$pagevar['pagetitle'] = 'Проекты домов свыше 300 м<sup>2</sup>';
 							break;
 		endswitch;
@@ -207,22 +207,22 @@ class Users_interface extends CI_Controller{
 	function proektinfo(){
 		
 		$pagevar = array(
-					'description'	=> '',
-					'keywords'		=> '',
-					'author'		=> '',
-					'title'			=> 'Зеленый Дом :: Проект дома из бревна ДБ-',
-					'pagetitle'		=> 'Проект дома из бревна ДБ-',
-					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user,
-					'project'		=> array(),
-					'form'			=> TRUE,
-					'backpath'		=> $this->session->userdata('backpath')
-			);
+			'description'	=> 'Мы строим деревянные дома из оцилиндрованного бревна, а также загородные дома, беседки, храмы, рестораны, гостинничные комплексы и другие малые архитектурные формы. В данном разделе представлены проекты в базовой комплектации и планировке. Мы всегда готовы разработать для вас индивидуальный проект дома, опираясь на ваши пожелания и предпочтения.',
+			'keywords'		=> 'дома из оцилиндрованного бревна, ростов-на-дону, оцилиндрованное бревно, производство, деревянные дома, бани, беседки, проекты домов, строительство под ключ, срубы, цены, бревна',
+			'author'		=> 'RealityGroup',
+			'title'			=> '',
+			'pagetitle'		=> '',
+			'baseurl' 		=> base_url(),
+			'userinfo'		=> $this->user,
+			'project'		=> array(),
+			'form'			=> TRUE,
+			'backpath'		=> $this->session->userdata('backpath')
+		);
 		
 		$uri = $this->uri->segment(2);
 		$id = preg_replace("([^0-9])", "",$uri);
-		$pagevar['title'] .= $id;
-		$pagevar['pagetitle'] .= $id;
+		$pagevar['title'] = 'Проект дома из оцилиндрованного бревна - '.$id.' :: Строительство деревянных домов и срубов недорого в Ростове-на-Дону';
+		$pagevar['pagetitle'] = 'Проект дома из бревна ДБ-'.$id;
 		$pagevar['project'] = $this->projectsmodel->read_record($id);
 		if(is_numeric($pagevar['project']['price'])):
 			$pagevar['project']['price'] = number_format($pagevar['project']['price'],0,' ',',');
@@ -238,14 +238,14 @@ class Users_interface extends CI_Controller{
 			redirect('admin/control-panel');
 		endif;
 		$pagevar = array(
-					'description'	=> '',
-					'keywords'		=> '',
-					'author'		=> '',
-					'title'			=> 'Зеленый Дом :: Авторизация',
-					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user,
-					'form'			=> FALSE
-			);
+			'description'	=> '',
+			'keywords'		=> '',
+			'author'		=> '',
+			'title'			=> 'Зеленый Дом :: Авторизация',
+			'baseurl' 		=> base_url(),
+			'userinfo'		=> $this->user,
+			'form'			=> FALSE
+		);
 		if($this->input->post('submit')):
 			$this->form_validation->set_rules('login-name','"Логин"','required|trim');
 			$this->form_validation->set_rules('login-pass','"Пароль"','required');

@@ -15,7 +15,7 @@
 			</li>
 			<li><strong class="email-label">Email</strong></li>
 			<li>
-				<input name="email" id="email" class="inpval" value="<?=set_value('email');?>" type="text">
+				<input name="email" id="email" value="<?=set_value('email');?>" type="text">
 			</li>
 		</ul>
 	</div>
@@ -23,7 +23,7 @@
 		<ul id="order-form">
 			<li><strong class="email-label">Комментарии</strong></li>
 			<li>
-				<textarea cols="60" rows="5" name="comments" id="comments" class="form-textarea resizable inpval"><?=set_value('comments');?></textarea>
+				<textarea cols="60" rows="5" name="comments" id="comments" class="form-textarea resizable"><?=set_value('comments');?></textarea>
 			</li>
 			<li>
 				<input name="submit" id="btn" value="Отправить" class="form-submit" type="submit">
