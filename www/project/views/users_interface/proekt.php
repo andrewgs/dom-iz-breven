@@ -19,7 +19,7 @@
 	    		<p class="home-parameters">
 	    			<?=$project['text']?>
 	    		</p>
-	    		<p><strong>Ориентировочная стоимость</strong>: <?=$project['price'];?> руб.</p>
+	    		<p><strong>Стоимость</strong>: <?=$project['price'];?> руб.</p>
 	    	</div>
 			<div class="clear"></div>
 			<?php $this->load->view('forms/frmsendmail'); ?>
