@@ -76,7 +76,7 @@ class Projectsmodel extends CI_Model {
 		$this->db->limit($count,$from);
 		$this->db->where('square >=',$low);
 		$this->db->where('square <=',$high);
-		$this->db->order_by('id DESC');
+		$this->db->order_by('square ASC');
 		$query = $this->db->get('projects');
 		$data = $query->result_array();
 		if(count($data)) return $data;

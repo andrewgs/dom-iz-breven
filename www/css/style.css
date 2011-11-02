@@ -1,4 +1,4 @@
-/* HTML5 ✰ Boilerplate
+	/* HTML5 ✰ Boilerplate
  * ==|== normalize ==========================================================
  */
 
@@ -87,11 +87,11 @@ header .top { height: 80px; }
 	
 #slogan { background: url(../img/slogan.png) no-repeat; display: block; text-indent: -9999px; width: 405px; height: 89px; margin: 10px 0 0; }
 #development { background: url(../img/forest.png) no-repeat; display: block; text-indent: -9999px; width: 282px; height: 71px; margin: 22px 0 0; }
-#main { font-size: 14px; line-height: 18px; }
+#main { font-size: 14px; line-height: 19px; }
 .slider { margin: 23px 0 7px; }
 
 .block-separator { height: 1px; width: 100%; background: rgba(0, 0, 0, 0.1); margin: 10px 0; }
-.home-preview { /*border: 3px solid #90987f;*/ width: 220px; height: 170px; overflow: hidden;
+.home-preview { /*border: 3px solid #90987f;*/ width: 210px; height: 160px; overflow: hidden; background-position: center center;
 	    -moz-border-radius: 5px; 
 	 -webkit-border-radius: 5px; 
 	 	 	 border-radius: 5px; 
@@ -102,7 +102,7 @@ header .top { height: 80px; }
 h1 { color: #3C3828; font-size: 28px; font-weight: normal; text-shadow: 0 1px 0 #eee;}
 h2 { border-bottom: 1px solid #3C3828; color: #3C3828; float: left; font-size: 21px; font-weight: normal; margin: 5px 0 20px;}
 h3 { font-size: 18px; font-weight: normal; line-height: 16px; margin: 0; text-shadow: 0 1px 0 #F0F0F0; }
-h4 { font-size: 18px; font-weight: normal; line-height: 21px; margin: 10px 0; }
+h4 { font-size: 15px; font-weight: normal; line-height: 21px; margin: 10px 0 0; }
 h4 a { color: #164f23 !important; }
 #contact-info h2 { margin-bottom: 5px; }
 #contact-info p { line-height: 16px; margin: 10px 0; }
@@ -212,6 +212,7 @@ blockquote p.margin { margin: 10px 0; }
 .project, 
 .project-main,
 .project-adv { display: block; background: url("../img/wood-frame.jpg") repeat scroll 0 0 #FDBD66; border: 1px solid #9b6a3f; height: 132px; margin: 10px 0 4px; padding: 5px; text-align: center; width: 172px; }
+.project-adv img { width: 400px; }
 .project-main { height: 198px; width: 264px; }
 .project-adv { height: auto; width: 402px; }
 	.project img, .project-adv img { border: 1px solid #9b6a3f; }

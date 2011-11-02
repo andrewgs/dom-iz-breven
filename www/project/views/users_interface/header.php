@@ -4,7 +4,7 @@
 			<a id="logo" href="<?=$baseurl;?>">Строительство деревянных домов из оцилиндрованного бревна</a>
 		</div>
 		<div id="top-contacts" class="grid_6">
-			<div class="phone-number no-border"><span class="phone-desc">или по второму телефону</span>+7 (909) 410-75-01</div>
+			<div class="phone-number no-border"><span class="phone-desc">или по второму номеру</span>+7 (909) 410-75-01</div>
 			<div class="phone-number"><span class="phone-desc">Телефон для справок</span>(863) 229-90-72</div>
 		</div>
 	</div>

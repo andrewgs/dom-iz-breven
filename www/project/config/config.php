@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://dom-iz-breven.ru/';
+$config['base_url']	= 'http://dev.realitygroup.ru/dom-iz-breven.ru/';
 
 /*
 |--------------------------------------------------------------------------

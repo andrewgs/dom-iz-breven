@@ -1,15 +1,15 @@
 <div class="box">
 	<div class="box-content h470 w918">
-		<table summary="Список сообщений">
+		<table class="table" width="100%" summary="Список сообщений">
 			<thead>
 				<tr class="odd">
 					<th scope="col" abbr="ID">ID</th>
-					<th scope="col" abbr="ДАТА">ДАТА</th>
-					<th scope="col" abbr="ИМЯ">ИМЯ</th>	
-					<th scope="col" abbr="E-MAIL">E-MAIL</th>
-					<th scope="col" abbr="ТЕЛЕФОН">ТЕЛЕФОН</th>
-					<th scope="col" abbr="СООБЩЕНИЕ">СООБЩЕНИЕ</th>
-					<th scope="col" abbr="ОПЕРАЦИИ">&nbsp;</th>
+					<th scope="col" abbr="Дата">Дата</th>
+					<th scope="col" abbr="Имя">Имя</th>	
+					<th scope="col" abbr="E-mail">E-mail</th>
+					<th scope="col" abbr="Телефон">Телефон</th>
+					<th scope="col" abbr="Сообщение">Сообщение</th>
+					<th scope="col" abbr="Операции">&nbsp;</th>
 				</tr>	
 			</thead>
 		    <tfoot>	
@@ -23,7 +23,7 @@
 					<tr class="odd" rID="<?=$i?>"> 
 				<?php endif; ?>
 					<td class="tdcenter" rID="<?=$i?>"><?=$list[$i]['id'];?></td>
-					<td class="tdcenter"><?=$list[$i]['date'];?></td>
+					<td class="tdcenter"><?=date("d/m/Y",strtotime($list[$i]['date']));?></td>
 					<td class="tdcenter"><?=$list[$i]['name'];?></td>
 					<td class="tdcenter"><?=$list[$i]['email'];?></td>
 					<td class="tdcenter"><?=$list[$i]['phone'];?></td>

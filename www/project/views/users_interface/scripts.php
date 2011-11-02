@@ -8,6 +8,11 @@
 	<script defer src="<?=$baseurl;?>js/jquery.jgrowl.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			
+			$("area[rel^='prettyPhoto']").prettyPhoto();
+			$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto();
+			$(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto();
+			
 			$("#btn").click(function(event){
 				event.preventDefault();
 				var err = false;
