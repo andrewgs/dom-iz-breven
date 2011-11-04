@@ -86,7 +86,7 @@ header .top { height: 80px; }
 	#main-nav li a:hover { border-bottom: none; }
 	
 #slogan { background: url(../img/slogan.png) no-repeat; display: block; text-indent: -9999px; width: 405px; height: 89px; margin: 10px 0 0; }
-#development { background: url(../img/assort.png) no-repeat; display: block; text-indent: -9999px; width: 336px; height: 71px; margin: 22px 0 0; }
+#development { background: url("../img/assort_new.png"); display: block; height: 51px; margin: 41px 0 0; text-indent: -9999px; width: 322px; }
 #main { font-size: 14px; line-height: 19px; }
 .slider { margin: 23px 0 7px; }
 

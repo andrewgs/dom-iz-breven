@@ -26,7 +26,9 @@
 				<a id="slogan" href="<?=$baseurl;?>proekti-derevyannih-domov">Деревянные дома из оцилиндрованного бревна</a>
 			</div>
 			<div class="grid_6">
-				<a id="development" href="<?=$baseurl;?>proizvodstvo-ocilindrovannogo-brevna">Производство оцилиндрованного бревна в Кировской области</a>
+				<a id="development" href="<?=$baseurl;?>proizvodstvo-ocilindrovannogo-brevna">
+					Бани из оцилиндрованного бревна, беседки, рестораны, загородные дома, гостиницы, коттеджные поселки, конюшни, гаражи и малые архитектурные формы 
+				</a>
 			</div>
 		</div>
 	<?php endif;?>

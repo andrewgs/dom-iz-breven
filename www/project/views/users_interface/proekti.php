@@ -30,6 +30,9 @@
 	    		</p>
 	    	</div>
 	    	<div class="grid_12 block-separator"></div>
+	    	<div class="grid_12">
+	    		<h2>Проекты домов из бревна</h2>
+	    	</div>
 	    	<div class="grid_3">
 	    		<a class="project" href="<?=$baseurl;?>proekti-derevyannih-domov-do-100m2"><img alt="Дом из оцилиндрованного бревна" src="<?=$baseurl;?>img/projects/db_1.jpg"></a>
 	    		<div class="project-desc"><a href="<?=$baseurl;?>proekti-derevyannih-domov-do-100m2" class="green-link">Проекты деревянных домов до <strong>100 м<sup>2</sup></strong></a></div>
@@ -45,6 +48,14 @@
 	    	<div class="grid_3">
 				<a class="project" href="<?=$baseurl;?>proekti-derevyannih-domov-ot-300m2"><img alt="Дом из оцилиндрованного бревна" src="<?=$baseurl;?>img/projects/db_4.jpg"></a>
 	    		<div class="project-desc"><a href="<?=$baseurl;?>proekti-derevyannih-domov-ot-300m2" class="green-link">Проекты деревянных домов свыше <strong>300 м<sup>2</sup></strong></a></div>
+	    	</div>
+	    	<div class="grid_12 block-separator"></div>
+	    	<div class="grid_12">
+	    		<h2>Проекты бань из бревна</h2>
+	    	</div>
+			<div class="grid_12">
+				<a class="project" href="<?=$baseurl;?>proekti-derevyannih-ban"><img alt="Бани из оцилиндрованного бревна" src="<?=$baseurl;?>img/projects/db_5.jpg"></a>
+	    		<div class="project-desc"><a href="<?=$baseurl;?>proekti-derevyannih-ban" class="green-link">Проекты деревянных бань</a></div>
 	    	</div>
 	    </div>
 		<?php $this->load->view('users_interface/footer'); ?>
