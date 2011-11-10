@@ -68,14 +68,6 @@
 		<?php for($i=0;$i<count($projects);$i++):?>
 			<?php if(isset($projects[$i]['id'])): ?>
 		    	<div class="grid_3">
-			    	<!--
-		    		<div class="home-preview" style="background-image: url(<?=$baseurl?>viewthumb/<?=$projects[$i]['id']?>);"> </div>
-		    		<h4>
-						<a href="<?=$baseurl.$projects[$i]['uri'];?>/proekt-db-<?=$projects[$i]['id'];?>">
-							Дом из бревна ДБ-<?=$projects[$i]['id']?>
-						</a>
-					</h4>
-					-->
 					<a href="<?=$baseurl.$projects[$i]['uri'];?>/proekt-db-<?=$projects[$i]['id'];?>" class="project">
 						<img width="170" height="130" src="<?=$baseurl?>viewthumb/<?=$projects[$i]['id']?>" alt="Проект дома из бревна <?=$projects[$i]['id']?>">
 					</a>

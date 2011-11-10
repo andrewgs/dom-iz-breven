@@ -73,6 +73,7 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('userfile1','','callback_userfile1_check');
 			$this->form_validation->set_rules('userfile2','','callback_userfile2_check');
 			$this->form_validation->set_rules('text','Содержание','required|trim');
+			$this->form_validation->set_rules('type','','trim');
 			if(!$this->form_validation->run()):
 				$_POST['submit'] = NULL;
 				$this->add_project();

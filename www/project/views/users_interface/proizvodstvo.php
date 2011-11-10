@@ -29,8 +29,8 @@
 	    			размеров и высокую гладкость поверхности предлагаемой нами продукции.
 	    		</p>
 	    		<p>
-	    			<img class="dev-image" src="<?=$baseurl;?>img/dev/1.jpg"/>
-	    			<img class="dev-image" src="<?=$baseurl;?>img/dev/2.jpg"/>
+	    			<img class="dev-image wm" src="<?=$baseurl;?>img/dev/1.jpg"/>
+	    			<img class="dev-image wm" src="<?=$baseurl;?>img/dev/2.jpg"/>
 	    		</p>
 	    		<p>
 	    			Для изготовления деталей для деревянного дома или бани оцилиндрованное бревно раскраивается на нужную дину и происходит 
@@ -40,8 +40,8 @@
 	    			строго с первых рядов и далее по позврастающей. 
 	    		</p>
 	    		<p>
-	    			<img class="dev-image" src="<?=$baseurl;?>img/dev/3.jpg"/>
-	    			<img class="dev-image" src="<?=$baseurl;?>img/dev/4.jpg"/>
+	    			<img class="dev-image wm" src="<?=$baseurl;?>img/dev/3.jpg"/>
+	    			<img class="dev-image wm" src="<?=$baseurl;?>img/dev/4.jpg"/>
 	    		</p>
 	    		<p>
 	    			Оцилиндрованное бревно имеет естественную влажность и в тёплое время года обрабатывается средством для защиты древесины 
@@ -51,8 +51,8 @@
 	    			и для здоровья человека.
 	    		</p>
 	    		<p>
-	    			<img class="dev-image" src="<?=$baseurl;?>img/dev/5.jpg"/>
-	    			<img class="dev-image" src="<?=$baseurl;?>img/dev/6.jpg"/>
+	    			<img class="dev-image wm" src="<?=$baseurl;?>img/dev/5.jpg"/>
+	    			<img class="dev-image wm" src="<?=$baseurl;?>img/dev/6.jpg"/>
 	    		</p>
 	    		<p>
 	    			Передовые технологии по обработке бревна дают возможность не только обеспечить сохранность и естесственное очарование дерева, 

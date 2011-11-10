@@ -9,12 +9,12 @@
 	    	</div>
 	    	<div class="grid_6">
 	    		<div class="project-adv gallery">
-					<a href="<?=$baseurl;?>viewimage/<?=$project['id'];?>" rel="prettyPhoto" title="Дом из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2"><img class="wm" alt="Дом из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2" src="<?=$baseurl;?>viewimage/<?=$project['id'];?>"></a>
+					<a href="<?=$baseurl;?>viewimage/<?=$project['id'];?>" rel="prettyPhoto" title="Баня из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2"><img class="wm" alt="Баня из оцилиндрованного бревна ДБ-<?=$project['id']?>, <?=$project['square']?>м2" src="<?=$baseurl;?>viewimage/<?=$project['id'];?>"></a>
 	    		</div>
 	    	</div>
 	    	<div class="grid_6">
 	    		<div class="project-adv gallery">
-					<a href="<?=$baseurl;?>viewshema/<?=$project['id'];?>" rel="prettyPhoto" title="Схема проекта дома из оцилиндрованного бревна ДБ-<?=$project['id']?>"><img alt="Схема проекта дома из оцилиндрованного бревна ДБ-<?=$project['id']?>" src="<?=$baseurl;?>viewshema/<?=$project['id'];?>"></a>
+					<a href="<?=$baseurl;?>viewshema/<?=$project['id'];?>" rel="prettyPhoto" title="Схема проекта бани из оцилиндрованного бревна ДБ-<?=$project['id']?>"><img alt="Схема проекта бани из оцилиндрованного бревна ДБ-<?=$project['id']?>" src="<?=$baseurl;?>viewshema/<?=$project['id'];?>"></a>
 	    		</div>
 	    		<p class="home-parameters">
 	    			<?=$project['text']?>

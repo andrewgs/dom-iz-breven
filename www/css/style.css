@@ -17,7 +17,7 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 a { color: #00e; }
 a:visited { color: #551a8b; }
 a:hover { color: #06e; }
-a:focus { outline: thin dotted; }
+a:focus { outline: 0; }
 a:hover, a:active { outline: 0; }
 
 abbr[title] { border-bottom: 1px dotted; }
@@ -85,8 +85,8 @@ header .top { height: 80px; }
 	#main-nav li a { border-bottom: 1px solid #5E5E5E; color: #5E5E5E; display: block; font-size: 15px; margin: 0 0 0 18px; text-decoration: none; }
 	#main-nav li a:hover { border-bottom: none; }
 	
-#slogan { background: url(../img/slogan.png) no-repeat; display: block; text-indent: -9999px; width: 405px; height: 89px; margin: 10px 0 0; }
-#development { background: url("../img/assort_new.png"); display: block; height: 51px; margin: 41px 0 0; text-indent: -9999px; width: 322px; }
+#slogan { background: url(../img/slogan.png) no-repeat; display: block; text-indent: -9999px; width: 405px; height: 89px; margin: 0; }
+#development { background: url("../img/assort_new.png"); display: block; height: 51px; margin: 31px 0 0; text-indent: -9999px; width: 322px; }
 #main { font-size: 14px; line-height: 19px; }
 .slider { margin: 23px 0 7px; }
 
@@ -106,7 +106,7 @@ h4 { font-size: 15px; font-weight: normal; line-height: 21px; margin: 10px 0 0; 
 h4 a { color: #164f23 !important; }
 #contact-info h2 { margin-bottom: 5px; }
 #contact-info p { line-height: 16px; margin: 10px 0; }
-#contact-info .bright { color: #488012; font-size: 20px; padding: 0 2px; }
+#contact-info .bright { color: #164F23; font-size: 20px; padding: 0 2px; }
 
 .no-border { border: 0 none !important; text-align: left; }
 .dev-image { display: inline-block; border-radius: 3px; margin-right: 0px; border: 3px solid #90987F; }

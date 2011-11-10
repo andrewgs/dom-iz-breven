@@ -17,26 +17,31 @@ $route['viewimage/:num'] = "users_interface/viewimage";
 $route['viewshema/:num'] = "users_interface/viewshema";
 $route['viewthumb/:num'] = "users_interface/viewsthumb";
 
-$route['proekti-derevyannih-domov-do-100m2'] = "users_interface/proektilist";
-$route['proekti-derevyannih-domov-do-100m2/spisok'] = "users_interface/proektilist";
-$route['proekti-derevyannih-domov-do-100m2/spisok/:num'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-do-100m2'] = "users_interface/domalist";
+$route['proekti-derevyannih-domov-do-100m2/spisok'] = "users_interface/domalist";
+$route['proekti-derevyannih-domov-do-100m2/spisok/:num'] = "users_interface/domalist";
 
-$route['proekti-derevyannih-domov-ot-100m2-do-200m2'] = "users_interface/proektilist";
-$route['proekti-derevyannih-domov-ot-100m2-do-200m2/spisok'] = "users_interface/proektilist";
-$route['proekti-derevyannih-domov-ot-100m2-do-200m2/spisok/:num'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-ot-100m2-do-200m2'] = "users_interface/domalist";
+$route['proekti-derevyannih-domov-ot-100m2-do-200m2/spisok'] = "users_interface/domalist";
+$route['proekti-derevyannih-domov-ot-100m2-do-200m2/spisok/:num'] = "users_interface/domalist";
 
-$route['proekti-derevyannih-domov-ot-200m2-do-300m2'] = "users_interface/proektilist";
-$route['proekti-derevyannih-domov-ot-200m2-do-300m2/spisok'] = "users_interface/proektilist";
-$route['proekti-derevyannih-domov-ot-200m2-do-300m2/spisok/:num'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-ot-200m2-do-300m2'] = "users_interface/domalist";
+$route['proekti-derevyannih-domov-ot-200m2-do-300m2/spisok'] = "users_interface/domalist";
+$route['proekti-derevyannih-domov-ot-200m2-do-300m2/spisok/:num'] = "users_interface/domalist";
 
-$route['proekti-derevyannih-domov-ot-300m2'] = "users_interface/proektilist";
-$route['proekti-derevyannih-domov-ot-300m2/spisok'] = "users_interface/proektilist";
-$route['proekti-derevyannih-domov-ot-300m2/spisok/:num'] = "users_interface/proektilist";
+$route['proekti-derevyannih-domov-ot-300m2'] = "users_interface/domalist";
+$route['proekti-derevyannih-domov-ot-300m2/spisok'] = "users_interface/domalist";
+$route['proekti-derevyannih-domov-ot-300m2/spisok/:num'] = "users_interface/domalist";
 
-$route['proekti-derevyannih-domov-do-100m2/proekt-db-:num'] = "users_interface/proektinfo";
-$route['proekti-derevyannih-domov-ot-100m2-do-200m2/proekt-db-:num'] = "users_interface/proektinfo";
-$route['proekti-derevyannih-domov-ot-200m2-do-300m2/proekt-db-:num'] = "users_interface/proektinfo";
-$route['proekti-derevyannih-domov-ot-300m2/proekt-db-:num'] = "users_interface/proektinfo";
+$route['proekti-derevyannih-domov-do-100m2/proekt-db-:num'] = "users_interface/domainfo";
+$route['proekti-derevyannih-domov-ot-100m2-do-200m2/proekt-db-:num'] = "users_interface/domainfo";
+$route['proekti-derevyannih-domov-ot-200m2-do-300m2/proekt-db-:num'] = "users_interface/domainfo";
+$route['proekti-derevyannih-domov-ot-300m2/proekt-db-:num'] = "users_interface/domainfo";
+
+$route['proekti-derevyannih-ban'] = "users_interface/banilist";
+$route['proekti-derevyannih-ban/spisok'] = "users_interface/banilist";
+$route['proekti-derevyannih-ban/spisok/:num'] = "users_interface/banilist";
+$route['proekti-derevyannih-ban/proekt-db-:num'] = "users_interface/banyainfo";
 
 /************************************	ADMIN INTRERFACE	***********************************************/
 

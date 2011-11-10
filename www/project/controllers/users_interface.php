@@ -146,7 +146,7 @@ class Users_interface extends CI_Controller{
 		echo json_encode($statusval);
 	}
 	
-	function proektilist(){
+	function domalist(){
 		
 		$pagevar = array(
 			'description'	=> 'Мы строим деревянные дома из оцилиндрованного бревна, а также загородные дома, беседки, храмы, рестораны, гостинничные комплексы и другие малые архитектурные формы. В данном разделе представлены проекты в базовой комплектации и планировке. Мы всегда готовы разработать для вас индивидуальный проект дома, опираясь на ваши пожелания и предпочтения.',
@@ -183,7 +183,7 @@ class Users_interface extends CI_Controller{
 							break;
 		endswitch;
 		
-		$pagevar['count'] = $this->projectsmodel->count_records($low,$high);
+		$pagevar['count'] = $this->projectsmodel->count_records($low,$high,'doma');
 
 		$config['base_url'] 		= $pagevar['baseurl'].$uri.'/spisok/';
         $config['total_rows'] 		= $pagevar['count']; 
@@ -197,14 +197,77 @@ class Users_interface extends CI_Controller{
 		$config['cur_tag_open']		= '<b>';
 		$config['cur_tag_close'] 	= '</b>';
 		$from = intval($this->uri->segment(3));
-		$pagevar['projects'] = $this->projectsmodel->read_limit_records(20,$from,$low,$high);
+		$pagevar['projects'] = $this->projectsmodel->read_limit_records(20,$from,$low,$high,'doma');
 		$this->pagination->initialize($config);
 		$pagevar['pages'] = $this->pagination->create_links();
 		$this->session->set_userdata('backpath',$this->uri->uri_string());
-		$this->load->view('users_interface/proektilist',$pagevar);
+		$this->load->view('users_interface/domalist',$pagevar);
 	}
 	
-	function proektinfo(){
+	function banilist(){
+		
+		$pagevar = array(
+			'description'	=> 'Мы строим деревянные дома из оцилиндрованного бревна, а также загородные дома, беседки, храмы, рестораны, гостинничные комплексы и другие малые архитектурные формы. В данном разделе представлены проекты в базовой комплектации и планировке. Мы всегда готовы разработать для вас индивидуальный проект дома, опираясь на ваши пожелания и предпочтения.',
+			'keywords'		=> 'дома из оцилиндрованного бревна, ростов-на-дону, оцилиндрованное бревно, производство, деревянные дома, бани, беседки, проекты домов, строительство под ключ, срубы, цены, бревна',
+			'author'		=> 'RealityGroup',
+			'title'			=> 'Проекты домов из оцилиндрованного бревна :: Строительство деревянных домов и срубов недорого в Ростове-на-Дону',
+			'baseurl' 		=> base_url(),
+			'userinfo'		=> $this->user,
+			'pagetitle'		=> '',
+			'projects'		=>array(),
+			'count'			=> 0,
+			'pages'			=> '',
+			'form'			=> FALSE
+		);
+		
+		$pagevar['count'] = $this->projectsmodel->count_records(0,100000,'bani');
+
+		$config['base_url'] 		= $pagevar['baseurl'].'proekti-derevyannih-ban/spisok/';
+        $config['total_rows'] 		= $pagevar['count']; 
+        $config['per_page'] 		= 20;
+        $config['num_links'] 		= 4;
+        $config['uri_segment'] 		= 3;
+		$config['first_link']		= 'В начало';
+		$config['last_link'] 		= 'В конец';
+		$config['next_link'] 		= 'Далее &raquo;';
+		$config['prev_link'] 		= '&laquo; Назад';
+		$config['cur_tag_open']		= '<b>';
+		$config['cur_tag_close'] 	= '</b>';
+		$from = intval($this->uri->segment(3));
+		$pagevar['projects'] = $this->projectsmodel->read_limit_records(20,$from,0,100000,'bani');
+		$this->pagination->initialize($config);
+		$pagevar['pages'] = $this->pagination->create_links();
+		$this->session->set_userdata('backpath',$this->uri->uri_string());
+		$this->load->view('users_interface/banilist',$pagevar);
+	}
+	
+	function banyainfo(){
+		
+		$pagevar = array(
+			'description'	=> 'Мы строим деревянные дома из оцилиндрованного бревна, а также загородные дома, беседки, храмы, рестораны, гостинничные комплексы и другие малые архитектурные формы. В данном разделе представлены проекты в базовой комплектации и планировке. Мы всегда готовы разработать для вас индивидуальный проект дома, опираясь на ваши пожелания и предпочтения.',
+			'keywords'		=> 'дома из оцилиндрованного бревна, ростов-на-дону, оцилиндрованное бревно, производство, деревянные дома, бани, беседки, проекты домов, строительство под ключ, срубы, цены, бревна',
+			'author'		=> 'RealityGroup',
+			'title'			=> '',
+			'pagetitle'		=> '',
+			'baseurl' 		=> base_url(),
+			'userinfo'		=> $this->user,
+			'project'		=> array(),
+			'form'			=> TRUE,
+			'backpath'		=> $this->session->userdata('backpath')
+		);
+		
+		$uri = $this->uri->segment(2);
+		$id = preg_replace("([^0-9])", "",$uri);
+		$pagevar['title'] = 'Проект бани из оцилиндрованного бревна - '.$id.' :: Строительство деревянных домов и срубов недорого в Ростове-на-Дону';
+		$pagevar['pagetitle'] = 'Проект бани из бревна ДБ-'.$id;
+		$pagevar['project'] = $this->projectsmodel->read_record($id);
+		if(is_numeric($pagevar['project']['price'])):
+			$pagevar['project']['price'] = number_format($pagevar['project']['price'],0,' ',',');
+		endif;
+		$this->load->view('users_interface/proekt-bani',$pagevar);
+	}
+	
+	function domainfo(){
 		
 		$pagevar = array(
 			'description'	=> 'Мы строим деревянные дома из оцилиндрованного бревна, а также загородные дома, беседки, храмы, рестораны, гостинничные комплексы и другие малые архитектурные формы. В данном разделе представлены проекты в базовой комплектации и планировке. Мы всегда готовы разработать для вас индивидуальный проект дома, опираясь на ваши пожелания и предпочтения.',
@@ -227,7 +290,7 @@ class Users_interface extends CI_Controller{
 		if(is_numeric($pagevar['project']['price'])):
 			$pagevar['project']['price'] = number_format($pagevar['project']['price'],0,' ',',');
 		endif;
-		$this->load->view('users_interface/proekt',$pagevar);
+		$this->load->view('users_interface/proekt-doma',$pagevar);
 	}
 	
 	/* ------------------------------------------- authorization ----------------------------------------------*/

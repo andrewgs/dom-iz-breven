@@ -5,7 +5,7 @@ DirectoryIndex index.php
 php_flag register_globals on
 php_value upload_max_filesize 10M
 RewriteEngine On
-RewriteBase /dom-iz-breven.ru
+RewriteBase /
 
 RewriteCond %{HTTP_HOST} ^www.dom-iz-breven.ru$ [NC]
 RewriteRule ^(.*)$ http://dom-iz-breven.ru/$1 [R=301,NC,L]

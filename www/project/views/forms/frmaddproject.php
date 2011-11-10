@@ -25,6 +25,11 @@
 		</ul>
 	</div>
 	<div class="clear"></div>
+	<div class="Type">
+		<input type="radio" id="radio1" name="type" value="doma" <?=set_radio('type','doma',TRUE);?>>Жилой дом<Br/>
+		<input type="radio" id="radio2" name="type" value="bani" <?=set_radio('type','bani');?>>Баня<Br/>
+	</div>
+	<div class="clear"></div>
 	<hr size="2"/>
 	<div class="grid_4">
 		<input name="submit" id="btn" value="Добавить" class="form-submit" type="submit">

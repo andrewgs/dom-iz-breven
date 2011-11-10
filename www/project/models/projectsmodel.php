@@ -1,5 +1,5 @@
 <?php
-class Projectsmodel extends CI_Model {
+class Projectsmodel extends CI_Model{
 	
 	var $id 	= 0;
 	var $square = "";
@@ -8,6 +8,7 @@ class Projectsmodel extends CI_Model {
 	var $image	= 0;
 	var $shema	= 0;
 	var $thumb	= 0;
+	var $type	= 0;
 	
 	function __construct(){
         
@@ -50,6 +51,7 @@ class Projectsmodel extends CI_Model {
 		$this->image = $data['image'];
 		$this->shema = $data['shema'];
 		$this->thumb = $data['thumb'];
+		$this->type = $data['type'];
 		$this->db->insert('projects',$this);
 		return $this->db->insert_id();
 	}
@@ -61,21 +63,23 @@ class Projectsmodel extends CI_Model {
 		return $this->db->affected_rows();
 	}
 	
-	function count_records($low,$high){
+	function count_records($low,$high,$type){
 	
 		$this->db->select('count(*) as cnt');
 		$this->db->where('square >=',$low);
 		$this->db->where('square <=',$high);
+		$this->db->where('type',$type);
 		$query = $this->db->get('projects');
 		$data = $query->result_array();
 		return $data[0]['cnt'];
 	}
 	
-	function read_limit_records($count,$from,$low,$high){
+	function read_limit_records($count,$from,$low,$high,$type){
 		
 		$this->db->limit($count,$from);
 		$this->db->where('square >=',$low);
 		$this->db->where('square <=',$high);
+		$this->db->where('type',$type);
 		$this->db->order_by('square ASC');
 		$query = $this->db->get('projects');
 		$data = $query->result_array();
