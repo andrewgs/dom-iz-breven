@@ -221,6 +221,9 @@ blockquote p.margin { margin: 10px 0; }
 .project-desc-main { font-size: 14px; line-height: 23px; margin-bottom: 10px; width: 282px; }
 .home-parameters { line-height: 20px; padding: 5px 7px 0; text-shadow: 0 1px 0 #F0F0F0; }
 
+/*======= RealityGroup =========*/
+#reality { background: url("../img/reality.png") repeat scroll 0 0 transparent; display: block; height: 24px; text-indent: -9999px; width: 142px; margin: 15px 0 0; }
+
 /* ==|== non-semantic helper classes ======================================== */
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }
