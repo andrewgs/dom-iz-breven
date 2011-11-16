@@ -111,7 +111,7 @@ h4 a { color: #164f23 !important; }
 .no-border { border: 0 none !important; text-align: left; }
 .dev-image { display: inline-block; border-radius: 3px; margin-right: 0px; border: 3px solid #90987F; }
 .black { color: #000; }
-.green-link { color: #164F23 !important; }
+#main a, .green-link { color: #164F23 !important; }
 .short-text { line-height: 21px; width: 560px; }
 
 
@@ -217,7 +217,7 @@ blockquote p.margin { margin: 10px 0; }
 .project-adv { height: auto; width: 402px; }
 	.project img, .project-adv img { border: 1px solid #9b6a3f; }
 	.project-main img { border: 1px solid #9b6a3f; width: 262px; }
-.project-desc, .project-desc-main { font-size: 13px; line-height: 19px; margin: 5px 0 20px; text-align: center; width: 182px; }
+.project-desc, .project-desc-main { font-size: 13px; line-height: 19px; margin: 5px 0 20px; text-align: center; width: 178px; }
 .project-desc-main { font-size: 14px; line-height: 23px; margin-bottom: 10px; width: 282px; }
 .home-parameters { line-height: 20px; padding: 5px 7px 0; text-shadow: 0 1px 0 #F0F0F0; }
 
