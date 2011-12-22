@@ -1,3 +1,6 @@
+<div class="block-overlay">
+	<div class="block-message">Работа сайта временно приостановлена. <br/>Приносим извинения за причиненные неудобства.</div>
+</div>
 <header>
 	<div class="container_12 top clearfix">
 		<div class="grid_6">

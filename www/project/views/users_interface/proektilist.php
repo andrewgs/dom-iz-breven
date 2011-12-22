@@ -13,7 +13,7 @@
 				</a>
 	    		<div class="project-desc">
 					<a href="<?=$baseurl.$this->uri->segment(1)?>/proekt-db-<?=$projects[$i]['id'];?>" class="green-link">
-						Проект дома из бревна ДБ-<?=$projects[$i]['id'];?> (<?=$projects[$i]['square'];?> м<sup>2</sup>)
+						Проект дома ДБ-<?=$projects[$i]['id'];?> <br>(<?=$projects[$i]['square'];?> м<sup>2</sup>)
 					</a>
 				</div>
 	    	</div>
